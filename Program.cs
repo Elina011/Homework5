@@ -1,18 +1,19 @@
-﻿// Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
-// [3 7 22 2 78] -> 76
+﻿// Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, 
+// стоящих на нечётных позициях.
 
-int DifMaxMin(int[] massive)
+// [3, 7, 23, 12] -> 19
+
+// [-4, -6, 89, 6] -> 0
+
+int SumOdd(int[] massive)
 {
-int max = massive[0];
-int min = massive[0];
+int sum = 0;
     for (int i = 0; i < massive.Length; i++)
-{
-    if (massive[i] > max)
-    max = massive[i];
-    if (massive[i]<min)
-    min = massive[i];
-}
-        return max-min;
+    {
+       sum = sum + massive[i];
+       i = i+1;
+    }
+    return sum;
 }
 
 int[] MakeRandomArray(int size, int minValue, int maxValue)
@@ -25,8 +26,6 @@ int[] MakeRandomArray(int size, int minValue, int maxValue)
     return massive;
 }
 
-
-
 int[] massive = MakeRandomArray(5, 100, 999);
 Console.Write($"{String.Join(", ", massive)} ->");
-Console.WriteLine(DifMaxMin(massive));
+Console.WriteLine(SumOdd(massive));
